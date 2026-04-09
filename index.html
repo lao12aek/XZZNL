@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>道诡丹炉 - 绝密炼丹系统</title>
+
+    <!-- ✅ 终极手写方案：引入汉仪尚巍手书（CDN）+ 站酷快乐体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
+    <!-- 汉仪尚巍手书的 CDN 链接（如果失效可百度寻找替代） -->
+    <style>
+        @font-face {
+            font-family: "HYShangWeiShouShu";
+            src: url("https://cdn.jsdelivr.net/gh/maoken/Fonts@master/HYShangWeiShouShu.ttf") format("truetype");
+            font-weight: normal;
+            font-style: normal;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ==================== 全局：暗红卷轴 + 极致毛笔字 ==================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            /* ✅ 核心修改：优先使用极具冲击力的汉仪尚巍手书 */
+            font-family: "HYShangWeiShouShu", "ZCOOL KuaiLe", "Ma Shan Zheng", serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background: #1a0505; 
+            background-image:
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='800' viewBox='0 0 800 800'%3E%3Cfilter id='paperTexture'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='6' seed='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paperTexture)' opacity='0.5'/%3E%3C/svg%3E"),
+                radial-gradient(ellipse at 50% 0%, rgba(120, 30, 30, 0.6), transparent 70%),
+                linear-gradient(180deg, #2b0a0a 0%, #0a0202 50%, #1a0505 100%);
+            background-attachment: fixed;
+            color: #e8d8b8;
+            min-height: 100vh;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 520px;
+            width: 100%;
+            margin: 0 auto;
+            background: linear-gradient(145deg, #2b1515, #0a0505); 
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #8b1a1a;
+            box-shadow:
+                0 10px 50px rgba(0, 0, 0, 0.9),
+                inset 0 0 150px rgba(0, 0, 0, 0.6),
+                0 0 40px rgba(139, 0, 0, 0.5);
+            position: relative;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 800 800'%3E%3Cg fill='none' stroke='%231a0505' stroke-width='3' stroke-opacity='0.2'%3E%3Cpath d='M0 400 Q 200 200 400 400 T 800 400'/%3E%3Cpath d='M0 300 Q 200 100 400 300 T 800 300'/%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.7;
+            pointer-events: none;
+        }
+
+        /* ==================== 头部：强化毛笔字气势 ==================== */
+        .header {
+            background: linear-gradient(180deg, #5c1a1a 0%, #1a0505 100%);
+            padding: 30px 15px 25px;
+            text-align: center;
+            border-bottom: 3px solid #c9a227;
+            position: relative;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -8px; left: 5%; width: 90%;
+            height: 8px;
+            background: linear-gradient(90deg, transparent, #c9a227, transparent);
+            filter: blur(1px);
+        }
+
+        /* ✅ 标题强制使用尚巍手书，增加字间距和阴影 */
+        .header h1 {
+            font-family: "HYShangWeiShouShu", cursive; /* 强制使用毛笔体 */
+            font-size: 2.8rem;
+            color: #f0e68c;
+            text-shadow:
+                0 0 10px #c9a227,
+                0 0 25px rgba(201, 162, 39, 0.8),
+                3px 3px 5px rgba(0,0,0,0.7); /* 更强的立体感 */
+            margin-bottom: 10px;
+            letter-spacing: 8px;
+            line-height: 1.2;
+        }
+
+        .header p {
+            color: #d2b48c;
+            font-size: 1rem;
+            letter-spacing: 3px;
+        }
+
+        /* ==================== 其余样式微调以增强对比 ==================== */
+        .section-title {
+            font-family: "HYShangWeiShouShu", "ZCOOL KuaiLe", cursive;
+            font-size: 1.3rem;
+            color: #ffdd99;
+            border-left: 4px solid #c9a227;
+            padding-left: 12px;
+            margin: 25px 0 15px 0;
+            letter-spacing: 2px;
+        }
+
+        .item-name {
+            font-family: "ZCOOL KuaiLe", "Ma Shan Zheng", sans-serif; /* 材料名用稍规整的手写体 */
+            font-size: 0.9rem;
+            font-weight: bold;
+            line-height: 1.3;
+            word-break: keep-all;
+            text-align: center;
+            width: 100%;
+            min-height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #e8d8b8;
+        }
+
+        .btn {
+            font-family: "ZCOOL KuaiLe", cursive;
+            letter-spacing: 1px;
+        }
+
+        .dan-name {
+            font-family: "HYShangWeiShouShu", cursive;
+            font-size: 1rem;
+            color: #ffdd99;
+        }
+
+        /* ==================== 其余样式 —— 保持原样 ==================== */
+        .hp-section { padding: 15px 20px; background: rgba(0, 0, 0, 0.4); border-bottom: 1px solid rgba(139, 69, 19, 0.5);}
+        .hp-info { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+        .hp-text { font-size: 1rem; color: #ffcc66; font-weight: 500; }
+        .hp-bar { width: 100%; height: 16px; background: rgba(0, 0, 0, 0.6); border-radius: 4px; overflow: hidden; border: 1px solid #5c1a1a; padding: 2px; }
+        .hp-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #8b0000, #cd5c5c, #ffcc66);
+            width: 50%;
+            transition: width 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border-radius: 3px;
+            position: relative;
+        }
+        .hp-fill::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.4) 50%, transparent 100%);
+            animation: shimmer 2.5s infinite;
+        }
+        @keyframes shimmer { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
+
+        .main-content { padding: 15px 20px 20px; }
+        
+        .materials-control { margin-bottom: 10px; }
+        .materials-toggle { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; padding: 5px 0; }
+        .toggle-btn {
+            background: rgba(92, 26, 26, 0.6);
+            border: 1px solid #8b4513;
+            color: #e8d8b8;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.3s;
+        }
+        .toggle-btn:hover { background: rgba(139, 69, 19, 0.8); border-color: #c9a227; color: #fff;}
+        .search-box { margin-bottom: 12px; position: relative; }
+        .search-input {
+            width: 100%;
+            padding: 12px 15px 12px 40px;
+            background: rgba(10, 0, 0, 0.9);
+            border: 1px solid #5c1a1a;
+            border-radius: 6px;
+            color: #e8d8b8;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+        .search-input:focus { outline: none; border-color: #c9a227; box-shadow: 0 0 15px rgba(201, 162, 39, 0.3); background: rgba(20, 5, 5, 1);}
+        .search-icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: #8b4513; }
+        .clear-search { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); background: none; border: none; color: #d2b48c; cursor: pointer; display: none; }
+        .search-input:not(:placeholder-shown) + .search-icon + .clear-search { display: block; }
+
+        .items-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 20px; max-height: 1200px; overflow: hidden; transition: max-height 0.5s ease; }
+        .items-grid.collapsed { max-height: 0; margin-bottom: 0; }
+        .item-card {
+            background: linear-gradient(145deg, rgba(61, 21, 21, 0.9), rgba(44, 15, 15, 0.95));
+            border: 1px solid #5c1a1a;
+            border-radius: 6px;
+            padding: 2px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            min-height: 90px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .item-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(201, 162, 39, 0.15), transparent 50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .item-card:hover { transform: translateY(-4px); border-color: #c9a227; box-shadow: 0 5px 15px rgba(92, 26, 26, 0.5); }
+        .item-card:hover::before { opacity: 1; }
+        .item-card.selected { border-color: #ffcc66; background: linear-gradient(145deg, rgba(92, 26, 26, 0.95), rgba(61, 21, 21, 1)); box-shadow: 0 0 15px rgba(201, 162, 39, 0.5), inset 0 0 10px rgba(255, 204, 102, 0.2); }
+        .item-card.hidden { display: none; }
+
+        .item-icon-img {
+            width: 120%;
+            height: 100%;
+            object-fit: cover;
+            margin-bottom: 0;
+        }
+        .item-card[data-id="23"] .item-icon-img {
+            width: 100%;
+            height: 100%;
+        }
+        .item-icon-font {
+            font-size: 1.8rem;
+            color: #c9a227;
+            height: calc(90px * 0.75);
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-shadow: 0 0 8px rgba(201, 162, 39, 0.5);
+            margin-bottom: 4px;
+        }
+
+        .selected-items { display: flex; flex-wrap: wrap; gap: 8px; margin: 15px 0; min-height: 45px; padding: 12px; background: rgba(0, 0, 0, 0.4); border-radius: 8px; border: 2px dashed #5c1a1a; align-items: center; justify-content: center;}
+        .selected-tag {
+            background: linear-gradient(135deg, rgba(92, 26, 26, 0.6), rgba(61, 21, 21, 0.9));
+            border: 1px solid #8b4513;
+            border-radius: 4px;
+            padding: 6px 12px;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #ffcc66;
+        }
+        .selected-tag img { width: 16px; height: 16px; object-fit: contain; margin-right: 6px; vertical-align: middle; }
+
+        .buttons-row { display: flex; gap: 10px; margin: 20px 0; }
+        .btn {
+            flex: 1;
+            padding: 12px 15px;
+            font-size: 0.95rem;
+            border: 1px solid;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn:active { transform: scale(0.96); }
+        .btn-start { background: linear-gradient(135deg, #5c1a1a, #3d1515); color: #f0e68c; border-color: #8b4513; }
+        .btn-alchemy { background: linear-gradient(135deg, #8b0000, #5c1a1a); color: #fff; border-color: #c9a227; }
+        .btn-reset { background: linear-gradient(135deg, #3d3d3d, #2b2b2b); color: #b0a080; border-color: #5c5c5c; }
+        .btn-end { background: linear-gradient(135deg, #4a0a0a, #2b0505); color: #cd5c5c; border-color: #8b0000; }
+        .btn-continue { background: linear-gradient(135deg, #5c1a1a, #3d1515); color: #f0e68c; width: 100%; margin-top: 10px; border-color: #8b4513; }
+        .btn:hover { filter: brightness(1.3); box-shadow: 0 0 15px currentColor; }
+        .btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none !important; filter: grayscale(50%); }
+
+        .dan-category { background: rgba(10, 0, 0, 0.7); border-radius: 8px; padding: 12px 15px; margin-bottom: 12px; border: 1px solid #5c1a1a; }
+        .category-title { font-size: 1.1rem; color: #ffcc66; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; cursor: pointer; padding-bottom: 8px; border-bottom: 1px solid rgba(201, 162, 39, 0.3);}
+        .category-controls { margin-left: auto; display: flex; align-items: center; gap: 10px; }
+        .dan-toggle-btn { background: rgba(92, 26, 26, 0.5); border: 1px solid #8b4513; color: #e8d8b8; padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; cursor: pointer; display: flex; align-items: center; gap: 4px; }
+        .dan-list { display: flex; flex-direction: column; gap: 8px; max-height: 2000px; overflow: hidden; transition: max-height 0.5s ease, padding 0.5s ease; padding-top: 8px;}
+        .dan-list.collapsed { max-height: 0; padding-top: 0; padding-bottom: 0;}
+        .dan-item {
+            background: linear-gradient(90deg, rgba(61, 21, 21, 0.7), rgba(44, 15, 15, 0.9));
+            border-radius: 6px;
+            padding: 10px;
+            font-size: 0.85rem;
+            line-height: 1.4;
+            border-left: 3px solid #c9a227;
+            border: 1px solid rgba(92, 26, 26, 0.6);
+        }
+        .dan-name {
+            color: #ffcc66;
+            font-weight: bold;
+            margin-bottom: 4px;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .dan-effect { color: #d2b48c; font-size: 0.85rem;}
+
+        .loading { text-align: center; padding: 20px; display: none; }
+        .loading.active { display: block; }
+        .loading i { font-size: 1.8rem; color: #ffcc66; margin-bottom: 10px; animation: spin 1.5s linear infinite; }
+        @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        .progress-bar { width: 100%; height: 6px; background: rgba(92, 26, 26, 0.4); border-radius: 3px; margin: 10px 0; overflow: hidden; }
+        .progress-fill { height: 100%; width: 0%; background: linear-gradient(90deg, #5c1a1a, #c9a227, #ffcc66); border-radius: 3px; transition: width 0.3s; }
+        .result-area { margin-top: 20px; padding: 20px; background: rgba(10, 0, 0, 0.95); border-radius: 8px; display: none; border: 1px solid #c9a227; box-shadow: 0 0 20px rgba(201, 162, 39, 0.3); }
+        .result-area.active { display: block; animation: fadeIn 0.5s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .result-title { font-size: 1.3rem; color: #ffcc66; margin-bottom: 15px; text-align: center; font-family: "HYShangWeiShouShu", cursive;}
+        .result-dan { background: rgba(61, 21, 21, 0.95); border-radius: 10px; padding: 15px; text-align: center; margin: 10px 0; border: 1px solid #ffcc66; }
+        .result-dan-name { font-size: 1.5rem; color: #f0e68c; margin-bottom: 8px; text-shadow: 0 0 10px rgba(255, 204, 102, 0.6); display: flex; align-items: center; justify-content: center; gap: 8px; }
+
+        #evacuationChoice { display: none; margin: 15px 0; text-align: center; padding: 15px; background: rgba(10, 0, 0, 0.8); border-radius: 8px; border: 1px solid #5c1a1a; }
+        #evacuationChoice p { color: #d2b48c; margin-bottom: 15px; font-size: 1.1rem; font-family: "ZCOOL KuaiLe", cursive;}
+        .evac-buttons { display: flex; gap: 10px; justify-content: center; }
+        .evac-buttons .btn { padding: 10px 20px; }
+
+        .recipe-table { width: 100%; border-collapse: separate; border-spacing: 0; margin-top: 10px; font-size: 0.75rem; border-radius: 6px; overflow: hidden; border: 1px solid #5c1a1a;}
+        .recipe-table th, .recipe-table td { border-bottom: 1px solid #5c1a1a; padding: 8px 6px; text-align: center; background: rgba(44, 15, 15, 0.9);}
+        .recipe-table th { background: rgba(92, 26, 26, 0.9); color: #ffcc66; font-weight: normal; letter-spacing: 0.5px;}
+        .recipe-table tr:last-child td { border-bottom: none; }
+        .recipe-table tr:hover td { background: rgba(61, 21, 21, 1); }
+        .recipe-table .mat-name { color: #d2b48c; }
+        .recipe-table .arrow { color: #c9a227; font-weight: bold; }
+        .recipe-table .res-name { color: #ffcc66; font-weight: bold; }
+
+        .instructions { background: rgba(10, 0, 0, 0.7); border-radius: 8px; padding: 15px; margin-top: 20px; font-size: 0.85rem; line-height: 1.6; border: 1px solid #5c1a1a; }
+        .instructions h3 { color: #ffcc66; margin-bottom: 10px; font-family: "HYShangWeiShouShu", cursive; font-size: 1.2rem;}
+        .instructions ul { padding-left: 20px; margin-bottom: 10px; }
+        .instructions li { margin-bottom: 5px; color: #b0a080;}
+        .control-panel { padding: 20px 15px 15px 15px; border-top: 1px solid #5c1a1a; margin-top: 20px; }
+        .control-title { font-size: 1.1rem; color: #ffcc66; border-left: 3px solid #8b0000; padding-left: 10px; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; letter-spacing: 1px; font-family: "HYShangWeiShouShu", cursive;}
+        .footer { text-align: center; padding: 15px; color: #8b4513; font-size: 0.75rem; border-top: 1px solid #5c1a1a; background: rgba(0, 0, 0, 0.4); }
+
+        .items-grid:not(.collapsed) { overflow-y: auto; }
+
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modal-box {
+            background: linear-gradient(145deg, #3d1515, #1a0505);
+            border: 1px solid #8b4513;
+            border-radius: 8px;
+            padding: 20px;
+            width: 90%;
+            max-width: 350px;
+            text-align: center;
+            transform: scale(0.9);
+            transition: transform 0.3s;
+        }
+        .modal-overlay.active .modal-box {
+            transform: scale(1);
+        }
+        .modal-title {
+            color: #ffcc66;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            font-family: "HYShangWeiShouShu", cursive;
+        }
+        .modal-desc {
+            color: #d2b48c;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        .modal-input {
+            width: 100%;
+            padding: 10px;
+            background: rgba(0,0,0,0.5);
+            border: 1px solid #5c1a1a;
+            border-radius: 4px;
+            color: #fff;
+            font-size: 1.2rem;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .modal-input:focus {
+            outline: none;
+            border-color: #c9a227;
+        }
+        .modal-confirm-btn {
+            background: linear-gradient(135deg, #5c1a1a, #3d1515);
+            color: #f0e68c;
+            border: 1px solid #8b4513;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: bold;
+            width: 100%;
+            font-family: "ZCOOL KuaiLe", cursive;
+        }
+
+        @media (max-width: 480px) {
+            body { padding: 10px; }
+            .items-grid { gap: 8px; }
+            .item-card { min-height: 85px; padding: 2px;}
+            .item-icon-font { height: calc(85px * 0.75); font-size: 1.5rem; }
+            .item-name { font-size: 0.8rem; }
+            .buttons-row { flex-direction: column; }
+        }
+        @media (max-width: 360px) {
+            .items-grid { grid-template-columns: repeat(2, 1fr); }
+            .item-card { min-height: 80px; }
+            .item-icon-font { height: calc(80px * 0.75); font-size: 1.4rem; }
+            .item-name { font-size: 0.75rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><i class="fas fa-fire"></i> 道诡丹炉</h1>
+            <p>绝密炼丹系统 - 老板为炼丹师</p>
+        </div>
+
+        <div class="hp-section">
+            <div class="hp-info">
+                <div class="hp-text">当前血量: <span id="hpValue">50</span>/100</div>
+                <div class="hp-text">炼丹状态: <span id="alchemyStatus">等待开始</span></div>
+            </div>
+            <div class="hp-bar"><div class="hp-fill" id="hpFill"></div></div>
+        </div>
+
+        <div class="main-content">
+            <div>
+                <h2 class="section-title"><i class="fas fa-box-open"></i> 炼丹材料</h2>
+
+                <div class="materials-control">
+                    <div class="materials-toggle">
+                        <div style="color: #d2b48c; font-size: 0.9rem;"><i class="fas fa-cube"></i> 36种材料</div>
+                        <button class="toggle-btn" id="toggleMaterialsBtn"><i class="fas fa-chevron-down"></i> 展开材料</button>
+                    </div>
+                    <div class="search-box">
+                        <input type="text" class="search-input" id="searchInput" placeholder="搜索材料名称...">
+                        <i class="fas fa-search search-icon"></i>
+                        <button class="clear-search" id="clearSearchBtn"><i class="fas fa-times"></i></button>
+                    </div>
+                </div>
+
+                <div class="items-grid collapsed" id="itemsGrid"></div>
+
+                <div class="selected-items" id="selectedItems">
+                    <div style="color: #d2b48c; font-style: italic; text-align: center; width: 100%;"><i class="fas fa-mouse-pointer"></i> 请选择2-3个材料进行炼丹</div>
+                </div>
+
+                <div class="buttons-row">
+                    <button class="btn btn-start" id="startBtn"><i class="fas fa-play"></i> 开始一局</button>
+                    <button class="btn btn-alchemy" id="alchemyBtn" disabled><i class="fas fa-flask"></i> 开始炼丹</button>
+                    <button class="btn btn-reset" id="resetBtn"><i class="fas fa-redo"></i> 重置</button>
+                </div>
+
+                <div id="evacuationChoice">
+                    <p>本次行动是否撤离成功？</p>
+                    <div class="evac-buttons">
+                        <button class="btn" id="evacSuccessBtn" style="background:linear-gradient(to bottom,#228b22,#145214); color:#90ee90; border-color: #3cb371;">
+                            <i class="fas fa-check"></i> 撤离成功（+5 HP）
+                        </button>
+                        <button class="btn" id="evacFailBtn" style="background:linear-gradient(to bottom,#8b0000,#5c1a1a); color:#cd5c5c; border-color: #c9a227;">
+                            <i class="fas fa-times"></i> 撤离失败（-3 HP）
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dan-category" id="recipeCategory">
+                <div class="category-title" onclick="toggleRecipeTable()">
+                    <i class="fas fa-scroll"></i> 固定配方表
+                    <div class="category-controls">
+                        <button class="dan-toggle-btn" id="toggleRecipeBtn"><i class="fas fa-chevron-down"></i> 展开</button>
+                    </div>
+                </div>
+                <div class="dan-list collapsed" id="recipeList">
+                    <table class="recipe-table">
+                        <thead>
+                            <tr>
+                                <th>材料 A</th><th>材料 B</th><th>材料 C</th><th>产出丹药</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td class="mat-name">笔记本电脑</td><td class="mat-name">显卡</td><td class="arrow">→</td><td class="res-name"><i class="fas fa-gamepad"></i> 游老爷丹</td></tr>
+                            <tr><td class="mat-name">化石</td><td class="mat-name">高级咖啡豆</td><td class="arrow">→</td><td class="res-name"><i class="fas fa-skull-crossbones"></i> 毒丹</td></tr>
+                            <tr><td class="mat-name">军用无人机</td><td class="mat-name">军用信息终端</td><td class="mat-name">主战坦克模型</td><td class="res-name"><i class="fas fa-utensils"></i> 辟谷丹</td></tr>
+                            <tr><td class="mat-name">显卡</td><td class="mat-name">香槟</td><td class="arrow">→</td><td class="res-name"><i class="fas fa-fish"></i> 公婆鱼丹</td></tr>
+                            <tr><td class="mat-name">超算单元</td><td class="mat-name">高级咖啡豆</td><td class="arrow">→</td><td class="res-name"><i class="fas fa-house-damage"></i> 大姥姥丹</td></tr>
+                            <tr><td class="mat-name">半身像</td><td class="mat-name">劳力士</td><td class="arrow">→</td><td class="res-name"><i class="fas fa-recycle"></i> 化腐丹</td></tr>
+                            <tr><td class="mat-name">滑膛枪</td><td class="mat-name">化石</td><td class="arrow">→</td><td class="res-name"><i class="fas fa-mountain"></i> 破障丹</td></tr>
+                            <tr><td class="mat-name">量子存储</td><td class="mat-name">雷斯留声机</td><td class="arrow">→</td><td class="res-name"><i class="fas fa-volume-mute"></i> 噤声丹</td></tr>
+                            <tr><td class="mat-name">房卡</td><td class="mat-name">瞪羚</td><td class="arrow">→</td><td class="res-name"><i class="fas fa-user-ninja"></i> 匿踪丹</td></tr>
+                            <tr><td class="mat-name">印象派名画</td><td class="mat-name">医疗无人机</td><td class="arrow">→</td><td class="res-name"><i class="fas fa-head-side-virus"></i> 痛苦丹</td></tr>
+                            <tr><td class="mat-name">鱼子酱</td><td class="mat-name">军用炮弹</td><td class="arrow">→</td><td class="res-name"><i class="fas fa-seedling"></i> 枯荣丹</td></tr>
+                            <tr><td class="mat-name">超算单元</td><td class="mat-name">瞪羚</td><td class="arrow">→</td><td class="res-name"><i class="fas fa-brain"></i> 妄心丹</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="loading" id="loading">
+                <i class="fas fa-cog"></i>
+                <div style="color: #ffcc66; margin-bottom: 8px;">炼丹中...</div>
+                <div style="color: #d2b48c; font-size: 0.85rem;">丹炉运转，灵气汇聚</div>
+                <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+            </div>
+
+            <div class="result-area" id="resultArea"></div>
+
+            <div>
+                <h2 class="section-title"><i class="fas fa-pills"></i> 丹药库</h2>
+                <div class="dan-category" id="taskDanCategory">
+                    <div class="category-title" onclick="toggleDanCategory('task')">
+                        <i class="fas fa-tasks"></i> 任务丹类
+                        <div class="category-controls">
+                            <button class="dan-toggle-btn" id="toggleTaskBtn"><i class="fas fa-chevron-down"></i> 展开</button>
+                        </div>
+                    </div>
+                    <div class="dan-list collapsed" id="taskDanList">
+                        <div class="dan-item"><div class="dan-name"><i class="fas fa-gamepad"></i> 游老爷丹</div><div class="dan-effect">下一局每击杀一人，需喊出老板指定短句或词，不喊一次追加100w</div></div>
+                        <div class="dan-item"><div class="dan-name"><i class="fas fa-skull-crossbones"></i> 毒丹</div><div class="dan-effect">不可携带任何医疗物品，撤离成功生效</div></div>
+                        <div class="dan-item"><div class="dan-name"><i class="fas fa-utensils"></i> 辟谷丹</div><div class="dan-effect">单局红价值&lt;80w且撤离成功</div></div>
+                        <div class="dan-item"><div class="dan-name"><i class="fas fa-fish"></i> 公婆鱼丹</div><div class="dan-effect">单局3红且撤离成功</div></div>
+                        <div class="dan-item"><div class="dan-name"><i class="fas fa-house-damage"></i> 大姥姥丹</div><div class="dan-effect">必须成功击杀老太且成功撤离</div></div>
+                        <div class="dan-item"><div class="dan-name"><i class="fas fa-recycle"></i> 化腐丹</div><div class="dan-effect">打手以老板指定称呼老板，叫错一次＋100w保底，并成功撤离</div></div>
+                        <div class="dan-item"><div class="dan-name"><i class="fas fa-mountain"></i> 破障丹</div><div class="dan-effect">打手只可使用工程类干员并成功撤离</div></div>
+                        <div class="dan-item"><div class="dan-name"><i class="fas fa-volume-mute"></i> 噤声丹</div><div class="dan-effect">打手整局只能说阿巴阿巴并成功撤离</div></div>
+                        <div class="dan-item"><div class="dan-name"><i class="fas fa-user-ninja"></i> 匿踪丹</div><div class="dan-effect">一名打手必须使用银翼跟踪一名敌人并将其击杀</div></div>
+                        <div class="dan-item"><div class="dan-name"><i class="fas fa-head-side-virus"></i> 痛苦丹</div><div class="dan-effect">必须找到价值&gt;=150w的红或房卡并带出</div></div>
+                        <div class="dan-item"><div class="dan-name"><i class="fas fa-seedling"></i> 枯荣丹</div><div class="dan-effect">需单局成功带出老板指定的3把枪</div></div>
+                        <div class="dan-item"><div class="dan-name"><i class="fas fa-brain"></i> 妄心丹</div><div class="dan-effect">需选择同样3个老板指定干员并成功撤离</div></div>
+                    </div>
+                </div>
+                <div class="dan-category" id="healDanCategory">
+                    <div class="category-title" onclick="toggleDanCategory('heal')">
+                        <i class="fas fa-heart"></i> 回血丹类
+                        <div class="category-controls">
+                            <button class="dan-toggle-btn" id="toggleHealBtn"><i class="fas fa-chevron-down"></i> 展开</button>
+                        </div>
+                    </div>
+                    <div class="dan-list collapsed" id="healDanList">
+                        <div class="dan-item"><div class="dan-name"><i class="fas fa-band-aid"></i> 金疮丹</div><div class="dan-effect">撤离失败只扣1滴血</div></div>
+                        <div class="dan-item"><div class="dan-name"><i class="fas fa-tint"></i> 润血丹</div><div class="dan-effect">撤离失败不掉血，成功+3滴血</div></div>
+                        <div class="dan-item"><div class="dan-name"><i class="fas fa-thorn"></i> 刺丹</div><div class="dan-effect">撤离成功额外+1滴血</div></div>
+                        <div class="dan-item"><div class="dan-name"><i class="fas fa-hourglass-half"></i> 阳寿丹</div><div class="dan-effect">增加10点血量</div></div>
+                        <div class="dan-item"><div class="dan-name"><i class="fas fa-fist-raised"></i> 大力丸</div><div class="dan-effect">下一局击杀&gt;=8个可增加2点血</div></div>
+                        <div class="dan-item"><div class="dan-name"><i class="fas fa-gem"></i> 大补丸</div><div class="dan-effect">下一局出红&gt;=3个可增加2点血</div></div>
+                        <div class="dan-item"><div class="dan-name"><i class="fas fa-shield-alt"></i> 渡厄丹</div><div class="dan-effect">撤离失败单独为当前血量增加3点血量</div></div>
+                    </div>
+                </div>
+                <div class="dan-category" id="deadlyDanCategory">
+                    <div class="category-title" onclick="toggleDanCategory('deadly')">
+                        <i class="fas fa-skull"></i> 致命丹类
+                        <div class="category-controls">
+                            <button class="dan-toggle-btn" id="toggleDeadlyBtn"><i class="fas fa-chevron-down"></i> 展开</button>
+                        </div>
+                    </div>
+                    <div class="dan-list collapsed" id="deadlyDanList">
+                        <div class="dan-item"><div class="dan-name"><i class="fas fa-yin-yang"></i> 造化丹</div><div class="dan-effect">撤离失败保底减半，成功则失效</div></div>
+                        <div class="dan-item"><div class="dan-name"><i class="fas fa-feather-alt"></i> 威仙丹</div><div class="dan-effect">撤离失败单独为当前血量增加2点血量</div></div>
+                        <div class="dan-item"><div class="dan-name"><i class="fas fa-biohazard"></i> 隐毒丹</div><div class="dan-effect">撤离失败单独为当前血量减少5点血量</div></div>
+                        <div class="dan-item"><div class="dan-name"><i class="fas fa-poison"></i> 鹤顶红</div><div class="dan-effect">直接扣除10点当前血量</div></div>
+                        <div class="dan-item"><div class="dan-name"><i class="fas fa-person-falling"></i> 半步倒</div><div class="dan-effect">下一局打手每倒地一次扣2点血</div></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="instructions">
+                <h3><i class="fas fa-info-circle"></i> 玩法说明</h3>
+                <ul>
+                    <li><strong>初始血量</strong>: 50，老板为炼丹师</li>
+                    <li><strong>炼丹消耗</strong>: 炼丹成功+5血量，失败-3血量</li>
+                    <li><strong>任务丹</strong>: 完成额外+5血量，任务失败-3血量</li>
+                    <li><strong>保底机制</strong>: 血量满100且打满保底为结单</li>
+                </ul>
+            </div>
+
+            <div class="control-panel">
+                <h2 class="control-title"><i class="fas fa-gamepad"></i> 游戏控制</h2>
+                <div class="buttons-row">
+                    <button class="btn btn-end" id="endGameBtn"><i class="fas fa-stop-circle"></i> 结束游戏</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>道诡丹炉 - 绝密炼丹系统</p>
+            <p style="margin-top: 5px; font-size: 0.7rem; color: #8b4513;">心诚则灵，道法自然</p>
+        </div>
+    </div>
+
+    <!-- 数值输入模态框 -->
+    <div class="modal-overlay" id="numberInputModal">
+        <div class="modal-box">
+            <div class="modal-title" id="modalTitle">请输入数值</div>
+            <div class="modal-desc" id="modalDesc">请输入对应的数值</div>
+            <input type="number" class="modal-input" id="modalInput" value="0" min="0">
+            <button class="modal-confirm-btn" id="modalConfirmBtn">确认</button>
+        </div>
+    </div>
+
+    <script>
+        const gameData = {
+            currentHp: 50, maxHp: 100, isGameActive: false, selectedItems: [], gameHistory: [],
+            materials: [
+                { id: 1, name: "海洋之泪", iconType: "img", imgSrc: "./images/HYZL.png", type: "red", value: 180000 },
+                { id: 2, name: "非洲之心", iconType: "img", imgSrc: "./images/FZZX.png", type: "red", value: 220000 },
+                { id: 3, name: "复苏呼吸机", iconType: "img", imgSrc: "./images/FSHXJ.png", type: "red", value: 150000 },
+                { id: 4, name: "装甲车电池", iconType: "img", imgSrc: "./images/ZJCDC.png", type: "red", value: 45000 },
+                { id: 5, name: "微型反应炉", iconType: "img", imgSrc: "./images/WXFYL.png", type: "red", value: 52000 },
+                { id: 6, name: "强化碳纤维板", iconType: "img", imgSrc: "./images/QHTXWB.png", type: "red", value: 135000 },
+                { id: 7, name: "ECMO", iconType: "img", imgSrc: "./images/ECMO.png", type: "red", value: 200000 },
+                { id: 8, name: "绝密服务器", iconType: "img", imgSrc: "./images/JMFWQ.png", type: "red", value: 175000 },
+                { id: 9, name: "主战坦克模型", iconType: "img", imgSrc: "./images/ZZTKMX.png", type: "red", value: 125000 },
+                { id: 10, name: "浮力补偿设备", iconType: "img", imgSrc: "./images/FLBCSB.png", type: "red", value: 85000 },
+                { id: 11, name: "军用信息终端", iconType: "img", imgSrc: "./images/JYXXZD.png", type: "red", value: 120000 },
+                { id: 12, name: "医疗机器人", iconType: "img", imgSrc: "./images/YLJQR.png", type: "red", value: 180000 },
+                { id: 13, name: "步战车模型", iconType: "img", imgSrc: "./images/BZCMX.png", type: "red", value: 95000 },
+                { id: 14, name: "自动体外除颤器", iconType: "img", imgSrc: "./images/AED.png", type: "red", value: 65000 },
+                { id: 15, name: "化石", iconType: "img", imgSrc: "./images/HS.png", type: "purple", value: 35000 },
+                { id: 16, name: "飞行记录仪", iconType: "img", imgSrc: "./images/FXJLY.png", type: "red", value: 110000 },
+                { id: 17, name: "超算单元", iconType: "img", imgSrc: "./images/CS.png", type: "red", value: 190000 },
+                { id: 18, name: "笔记本电脑", iconType: "img", imgSrc: "./images/BJBDN.png", type: "blue", value: 30000 },
+                { id: 19, name: "印象派名画", iconType: "img", imgSrc: "./images/YXPMH.png", type: "purple", value: 250000 },
+                { id: 20, name: "军用炮弹", iconType: "img", imgSrc: "./images/JYPD.png", type: "red", value: 55000 },
+                { id: 21, name: "火箭燃料", iconType: "img", imgSrc: "./images/HJRL.png", type: "red", value: 75000 },
+                { id: 22, name: "高速磁盘阵列", iconType: "img", imgSrc: "./images/GSCPZL.png", type: "red", value: 140000 },
+                { id: 23, name: "房卡", iconType: "img", imgSrc: "./images/FK.png", type: "blue", value: 28000 },
+                { id: 24, name: "半身像", iconType: "img", imgSrc: "./images/BSX.png", type: "purple", value: 45000 },
+                { id: 25, name: "高级咖啡豆", iconType: "img", imgSrc: "./images/GJKFD.png", type: "blue", value: 32000 },
+                { id: 26, name: "香槟", iconType: "img", imgSrc: "./images/XB.png", type: "blue", value: 38000 },
+                { id: 27, name: "高能瓦斯罐", iconType: "img", imgSrc: "./images/GNWSG.png", type: "red", value: 68000 },
+                { id: 28, name: "显卡", iconType: "img", imgSrc: "./images/XK.png", type: "red", value: 125000 },
+                { id: 29, name: "量子存储", iconType: "img", imgSrc: "./images/LZUP.png", type: "red", value: 195000 },
+                { id: 30, name: "军用无人机", iconType: "img", imgSrc: "./images/JYWRJ.png", type: "red", value: 165000 },
+                { id: 31, name: "雷斯留声机", iconType: "img", imgSrc: "./images/LSLSJ.png", type: "purple", value: 75000 },
+                { id: 32, name: "打字机", iconType: "img", imgSrc: "./images/DZJ.png", type: "purple", value: 55000 },
+                { id: 33, name: "卫星锅", iconType: "img", imgSrc: "./images/WXG.png", type: "red", value: 95000 },
+                { id: 34, name: "鱼子酱", iconType: "img", imgSrc: "./images/YZJ.png", type: "blue", value: 65000 },
+                { id: 35, name: "瞪羚", iconType: "img", imgSrc: "./images/DL.png", type: "purple", value: 42000 },
+                { id: 36, name: "劳力士", iconType: "img", imgSrc: "./images/LLS.png", type: "red", value: 300000 }
+            ],
+            fixedRecipes: [
+                { materials: ["笔记本电脑", "显卡"], result: "游老爷丹" },
+                { materials: ["化石", "高级咖啡豆"], result: "毒丹" },
+                { materials: ["军用无人机", "军用信息终端", "主战坦克模型"], result: "辟谷丹" },
+                { materials: ["显卡", "香槟"], result: "公婆鱼丹" },
+                { materials: ["超算单元", "高级咖啡豆"], result: "大姥姥丹" },
+                { materials: ["半身像", "劳力士"], result: "化腐丹" },
+                { materials: ["滑膛枪", "化石"], result: "破障丹" },
+                { materials: ["量子存储", "雷斯留声机"], result: "噤声丹" },
+                { materials: ["房卡", "瞪羚"], result: "匿踪丹" },
+                { materials: ["印象派名画", "医疗无人机"], result: "痛苦丹" },
+                { materials: ["鱼子酱", "军用炮弹"], result: "枯荣丹" },
+                { materials: ["超算单元", "瞪羚"], result: "妄心丹" }
+            ],
+            danRecipes: [
+                { name: "游老爷丹", type: "task", materials: [1, 2], effect: "下一局每击杀一人，需喊出老板指定短句或词，不喊一次追加100w" },
+                { name: "毒丹", type: "task", materials: [3, 4], effect: "不可携带任何医疗物品，撤离成功生效" },
+                { name: "辟谷丹", type: "task", materials: [5, 6], effect: "单局红价值<80w且撤离成功" },
+                { name: "公婆鱼丹", type: "task", materials: [7, 8, 9], effect: "单局3红且撤离成功" },
+                { name: "大姥姥丹", type: "task", materials: [10, 11], effect: "必须成功击杀老太且成功撤离" },
+                { name: "化腐丹", type: "task", materials: [12, 13], effect: "打手以老板指定称呼老板，叫错一次＋100w保底，并成功撤离" },
+                { name: "破障丹", type: "task", materials: [14, 15], effect: "打手只可使用工程类干员并成功撤离" },
+                { name: "噤声丹", type: "task", materials: [16, 17], effect: "打手整局只能说阿巴阿巴并成功撤离" },
+                { name: "匿踪丹", type: "task", materials: [18, 19], effect: "一名打手必须使用银翼跟踪一名敌人并将其击杀" },
+                { name: "痛苦丹", type: "task", materials: [20, 21], effect: "必须找到价值>=150w的红或房卡并带出" },
+                { name: "枯荣丹", type: "task", materials: [22, 23], effect: "需单局成功带出老板指定的3把枪" },
+                { name: "妄心丹", type: "task", materials: [24, 25, 26], effect: "需选择同样3个老板指定干员并成功撤离" },
+                { name: "金疮丹", type: "heal", materials: [1, 4], effect: "撤离失败只扣1滴血" },
+                { name: "润血丹", type: "heal", materials: [2, 5], effect: "撤离失败不掉血，成功+3滴血" },
+                { name: "刺丹", type: "heal", materials: [3, 6], effect: "撤离成功额外+1滴血" },
+                { name: "阳寿丹", type: "heal", materials: [7, 8], effect: "增加10点血量" },
+                { name: "大力丸", type: "heal", materials: [9, 10], effect: "下一局击杀>=8个可增加2点血" },
+                { name: "大补丸", type: "heal", materials: [11, 12], effect: "下一局出红>=3个可增加2点血" },
+                { name: "渡厄丹", type: "heal", materials: [13, 14], effect: "撤离失败单独为当前血量增加3点血量" },
+                { name: "造化丹", type: "deadly", materials: [7, 9], effect: "撤离失败保底减半，成功则失效" },
+                { name: "威仙丹", type: "deadly", materials: [8, 4, 5], effect: "撤离失败单独为当前血量增加2点血量" },
+                { name: "隐毒丹", type: "deadly", materials: [1, 2, 3], effect: "撤离失败单独为当前血量减少5点血量" },
+                { name: "鹤顶红", type: "deadly", materials: [15, 16], effect: "直接扣除10点当前血量" },
+                { name: "半步倒", type: "deadly", materials: [17, 18], effect: "下一局打手每倒地一次扣2点血" }
+            ]
+        };
+
+        const dom = {
+            hpValue: document.getElementById('hpValue'), hpFill: document.getElementById('hpFill'), alchemyStatus: document.getElementById('alchemyStatus'),
+            itemsGrid: document.getElementById('itemsGrid'), selectedItems: document.getElementById('selectedItems'),
+            startBtn: document.getElementById('startBtn'), alchemyBtn: document.getElementById('alchemyBtn'), resetBtn: document.getElementById('resetBtn'), endGameBtn: document.getElementById('endGameBtn'),
+            loading: document.getElementById('loading'), progressFill: document.getElementById('progressFill'), resultArea: document.getElementById('resultArea'),
+            toggleMaterialsBtn: document.getElementById('toggleMaterialsBtn'), searchInput: document.getElementById('searchInput'), clearSearchBtn: document.getElementById('clearSearchBtn'),
+            taskDanList: document.getElementById('taskDanList'), healDanList: document.getElementById('healDanList'), deadlyDanList: document.getElementById('deadlyDanList'),
+            toggleTaskBtn: document.getElementById('toggleTaskBtn'), toggleHealBtn: document.getElementById('toggleHealBtn'), toggleDeadlyBtn: document.getElementById('toggleDeadlyBtn'),
+            evacuationChoice: document.getElementById('evacuationChoice'), evacSuccessBtn: document.getElementById('evacSuccessBtn'), evacFailBtn: document.getElementById('evacFailBtn'),
+            recipeList: document.getElementById('recipeList'), toggleRecipeBtn: document.getElementById('toggleRecipeBtn'),
+            numberInputModal: document.getElementById('numberInputModal'),
+            modalTitle: document.getElementById('modalTitle'),
+            modalDesc: document.getElementById('modalDesc'),
+            modalInput: document.getElementById('modalInput'),
+            modalConfirmBtn: document.getElementById('modalConfirmBtn')
+        };
+
+        let isMaterialsCollapsed = true;
+        let danCategoryStates = { task: true, heal: true, deadly: true };
+        let evacuationDecided = false;
+        let lastDanResult = null;
+        let resolveModalPromise = null;
+        let pendingDelayedDan = null;
+
+        function initGame() {
+            updateHpDisplay();
+            initMaterialsGrid();
+            setupEventListeners();
+            updateToggleButton();
+            updateDanToggleButtons();
+            dom.startBtn.disabled = false;
+        }
+
+        function updateHpDisplay() {
+            dom.hpValue.textContent = gameData.currentHp;
+            dom.hpFill.style.width = `${(gameData.currentHp / gameData.maxHp) * 100}%`;
+        }
+
+        function initMaterialsGrid() {
+            dom.itemsGrid.innerHTML = '';
+            gameData.materials.forEach(material => {
+                const el = document.createElement('div');
+                el.className = 'item-card';
+                el.dataset.id = material.id;
+                el.dataset.name = material.name;
+
+                let iconHtml = '';
+                if (material.iconType === 'img') {
+                    iconHtml = `<img src="${material.imgSrc}" class="item-icon-img" alt="${material.name}">`;
+                } else {
+                    iconHtml = `<div class="item-icon-font"><i class="${material.iconClass}"></i></div>`;
+                }
+
+                el.innerHTML = `${iconHtml}<div class="item-name">${material.name}</div>`;
+                el.addEventListener('click', () => toggleMaterialSelection(material));
+                dom.itemsGrid.appendChild(el);
+            });
+        }
+
+        function toggleMaterialSelection(material) {
+            if (!gameData.isGameActive) {
+                console.log("请先完成撤离选择！");
+                return;
+            }
+            const index = gameData.selectedItems.findIndex(item => item.id === material.id);
+            const card = document.querySelector(`.item-card[data-id="${material.id}"]`);
+            if (index === -1) {
+                if (gameData.selectedItems.length < 3) {
+                    gameData.selectedItems.push(material);
+                    card.classList.add('selected');
+                } else {
+                    console.log("最多只能选择3个材料！");
+                    return;
+                }
+            } else {
+                gameData.selectedItems.splice(index, 1);
+                card.classList.remove('selected');
+            }
+            updateSelectedItemsDisplay();
+            updateAlchemyButton();
+        }
+
+        function updateSelectedItemsDisplay() {
+            dom.selectedItems.innerHTML = '';
+            if (gameData.selectedItems.length === 0) {
+                dom.selectedItems.innerHTML = `<div style="color: #d2b48c; font-style: italic; text-align: center; width: 100%;"><i class="fas fa-mouse-pointer"></i> 请选择2-3个材料进行炼丹</div>`;
+                return;
+            }
+            gameData.selectedItems.forEach(item => {
+                const tag = document.createElement('div');
+                tag.className = 'selected-tag';
+                let iconHtml = '';
+                if (item.iconType === 'img') {
+                    iconHtml = `<img src="${item.imgSrc}">`;
+                } else {
+                    iconHtml = `<i class="${item.iconClass}"></i>`;
+                }
+                tag.innerHTML = `${iconHtml}<span>${item.name}</span>`;
+                dom.selectedItems.appendChild(tag);
+            });
+        }
+
+        function updateAlchemyButton() {
+            const isValid = gameData.selectedItems.length >= 2 && gameData.selectedItems.length <= 3;
+            dom.alchemyBtn.disabled = !gameData.isGameActive || !isValid;
+        }
+
+        function updateToggleButton() { dom.toggleMaterialsBtn.innerHTML = isMaterialsCollapsed ? '<i class="fas fa-chevron-down"></i> 展开材料' : '<i class="fas fa-chevron-up"></i> 收起材料'; }
+        function updateDanToggleButtons() {
+            dom.toggleTaskBtn.innerHTML = danCategoryStates.task ? '<i class="fas fa-chevron-up"></i> 收起' : '<i class="fas fa-chevron-down"></i> 展开';
+            dom.toggleHealBtn.innerHTML = danCategoryStates.heal ? '<i class="fas fa-chevron-up"></i> 收起' : '<i class="fas fa-chevron-down"></i> 展开';
+            dom.toggleDeadlyBtn.innerHTML = danCategoryStates.deadly ? '<i class="fas fa-chevron-up"></i> 收起' : '<i class="fas fa-chevron-down"></i> 展开';
+        }
+        function toggleMaterials() { isMaterialsCollapsed = !isMaterialsCollapsed; dom.itemsGrid.classList.toggle('collapsed', isMaterialsCollapsed); updateToggleButton(); }
+        function toggleDanCategory(category) { danCategoryStates[category] = !danCategoryStates[category]; document.getElementById(`${category}DanList`).classList.toggle('collapsed', danCategoryStates[category]); updateDanToggleButtons(); }
+        function toggleRecipeTable() { const isCollapsed = dom.recipeList.classList.toggle('collapsed'); dom.toggleRecipeBtn.innerHTML = isCollapsed ? '<i class="fas fa-chevron-down"></i> 展开' : '<i class="fas fa-chevron-up"></i> 收起'; }
+
+        function filterMaterials(term) {
+            const searchTerm = term.toLowerCase();
+            document.querySelectorAll('.item-card').forEach(card => {
+                const name = card.dataset.name;
+                card.classList.toggle('hidden', !name.includes(searchTerm));
+            });
+        }
+
+        function setupEventListeners() {
+            dom.startBtn.addEventListener('click', startNewRound);
+            dom.alchemyBtn.addEventListener('click', startAlchemy);
+            dom.resetBtn.addEventListener('click', resetSelection);
+            dom.endGameBtn.addEventListener('click', () => {
+                if (confirm("确定要结束游戏吗？这将重置血量到50并清空所有炼丹记录。")) { location.reload(); }
+            });
+            dom.toggleMaterialsBtn.addEventListener('click', toggleMaterials);
+            dom.searchInput.addEventListener('input', e => filterMaterials(e.target.value));
+            dom.clearSearchBtn.addEventListener('click', () => { dom.searchInput.value = ''; filterMaterials(''); });
+            dom.toggleTaskBtn.addEventListener('click', e => { e.stopPropagation(); toggleDanCategory('task'); });
+            dom.toggleHealBtn.addEventListener('click', e => { e.stopPropagation(); toggleDanCategory('heal'); });
+            dom.toggleDeadlyBtn.addEventListener('click', e => { e.stopPropagation(); toggleDanCategory('deadly'); });
+            dom.evacSuccessBtn.addEventListener('click', () => handleEvacuation(true));
+            dom.evacFailBtn.addEventListener('click', () => handleEvacuation(false));
+            dom.modalConfirmBtn.addEventListener('click', handleModalConfirm);
+        }
+
+        async function startNewRound() {
+            resetSelection();
+            gameData.isGameActive = false;
+            evacuationDecided = false;
+            dom.evacuationChoice.style.display = 'block';
+            dom.alchemyBtn.disabled = true;
+            dom.alchemyStatus.textContent = "等待撤离结果";
+            dom.startBtn.disabled = true;
+            console.log("新的一局开始！");
+
+            if (pendingDelayedDan) {
+                await showNumberInputModal(pendingDelayedDan.name, true);
+                pendingDelayedDan = null;
+            }
+        }
+
+        async function handleEvacuation(isSuccess) {
+            if (evacuationDecided) return;
+            evacuationDecided = true;
+
+            let hpChange = 0;
+            let logMessages = [];
+
+            if (!isSuccess) {
+                hpChange -= 3;
+                logMessages.push("撤离失败，扣除 3 点血量！");
+            } else {
+                hpChange += 5;
+                logMessages.push("撤离成功，增加 5 点血量！");
+            }
+
+            if (lastDanResult) {
+                switch (lastDanResult.name) {
+                    case "刺丹":
+                        if (isSuccess) { hpChange += 1; logMessages.push("刺丹生效：+1 HP"); }
+                        break;
+                    case "阳寿丹":
+                        hpChange += 10;
+                        logMessages.push("阳寿丹生效：+10 HP");
+                        break;
+                    case "鹤顶红":
+                        hpChange -= 10;
+                        logMessages.push("鹤顶红生效：-10 HP");
+                        break;
+                    case "渡厄丹":
+                        if (!isSuccess) { hpChange += 3; logMessages.push("渡厄丹生效：+3 HP"); }
+                        break;
+                    case "威仙丹":
+                        if (!isSuccess) { hpChange += 2; logMessages.push("威仙丹生效：+2 HP"); }
+                        break;
+                    case "隐毒丹":
+                        if (!isSuccess) { hpChange -= 5; logMessages.push("隐毒丹生效：-5 HP"); }
+                        break;
+                }
+            }
+
+            gameData.currentHp = Math.max(0, Math.min(gameData.maxHp, gameData.currentHp + hpChange));
+            updateHpDisplay();
+            console.log(logMessages.join('\n'));
+
+            dom.evacuationChoice.style.display = 'none';
+            gameData.isGameActive = true;
+            dom.alchemyStatus.textContent = "游戏中";
+
+            checkGameEnd();
+        }
+
+        function showNumberInputModal(danName, isSuccess) {
+            return new Promise(resolve => {
+                resolveModalPromise = resolve;
+                dom.modalInput.value = 0;
+
+                if (danName === '大力丸') {
+                    dom.modalTitle.textContent = '大力丸结算';
+                    dom.modalDesc.textContent = '请输入本局击杀人数 (>=8 可回2血):';
+                } else if (danName === '大补丸') {
+                    dom.modalTitle.textContent = '大补丸结算';
+                    dom.modalDesc.textContent = '请输入本局出红数量 (>=3 可回2血):';
+                } else if (danName === '半步倒') {
+                    dom.modalTitle.textContent = '半步倒结算';
+                    dom.modalDesc.textContent = '请输入打手倒地次数 (每次扣2血):';
+                }
+
+                dom.numberInputModal.classList.add('active');
+            });
+        }
+
+        function handleModalConfirm() {
+            if (!resolveModalPromise) return;
+
+            const value = parseInt(dom.modalInput.value) || 0;
+            let hpChange = 0;
+            let logMessage = "";
+
+            if (pendingDelayedDan) {
+                switch (pendingDelayedDan.name) {
+                    case "大力丸":
+                        if (value >= 8) { hpChange = 2; logMessage = "大力丸生效：+2 HP"; }
+                        break;
+                    case "大补丸":
+                        if (value >= 3) { hpChange = 2; logMessage = "大补丸生效：+2 HP"; }
+                        break;
+                    case "半步倒":
+                        hpChange = -(value * 2);
+                        logMessage = `半步倒生效：${hpChange} HP`;
+                        break;
+                }
+            }
+
+            gameData.currentHp = Math.max(0, Math.min(gameData.maxHp, gameData.currentHp + hpChange));
+            updateHpDisplay();
+            if (logMessage) console.log(logMessage);
+
+            dom.numberInputModal.classList.remove('active');
+            resolveModalPromise();
+            resolveModalPromise = null;
+            pendingDelayedDan = null;
+
+            checkGameEnd();
+        }
+
+        function startAlchemy() {
+            if (gameData.selectedItems.length < 2) { console.log("请选择2-3个材料！"); return; }
+            dom.loading.classList.add('active');
+            let p = 0;
+            const t = setInterval(() => {
+                p += 2;
+                dom.progressFill.style.width = p + '%';
+                if (p >= 100) {
+                    clearInterval(t);
+                    finishAlchemy();
+                }
+            }, 30);
+        }
+
+        function finishAlchemy() {
+            dom.loading.classList.remove('active');
+
+            const selectedNames = gameData.selectedItems.map(i => i.name).sort();
+            let fixedRecipeResult = null;
+
+            for (const recipe of gameData.fixedRecipes) {
+                const recipeNames = [...recipe.materials].sort();
+                if (JSON.stringify(selectedNames) === JSON.stringify(recipeNames)) {
+                    fixedRecipeResult = recipe.result;
+                    break;
+                }
+            }
+
+            let dan;
+            let isFixed = false;
+            if (fixedRecipeResult) {
+                dan = gameData.danRecipes.find(d => d.name === fixedRecipeResult);
+                isFixed = true;
+            } else {
+                const pool = gameData.danRecipes.filter(d => d.type !== "task");
+                dan = pool[Math.floor(Math.random() * pool.length)];
+            }
+
+            lastDanResult = dan;
+
+            if (['大力丸', '大补丸', '半步倒'].includes(dan.name)) {
+                pendingDelayedDan = dan;
+            }
+
+            dom.resultArea.innerHTML = `
+                <h3 class="result-title" style="color: #ffcc66;"><i class="fas fa-check-circle"></i> 炼丹成功！</h3>
+                <div class="result-dan">
+                    <div class="result-dan-name">
+                        <i class="${getDanIcon(dan.name)}"></i> ${dan.name}
+                    </div>
+                    <div style="color: #d2b48c; font-size: 0.9rem; margin: 8px 0;">${dan.effect}</div>
+                </div>
+                ${isFixed ? '<div style="color: #c9a227; font-size: 0.8rem; margin-top: 5px;"><i class="fas fa-star"></i> 固定配方触发！</div>' : '<div style="color: #8b4513; font-size: 0.8rem; margin-top: 5px;"><i class="fas fa-dice"></i> 随机生成丹药</div>'}
+                <div style="color: #d2b48c; font-size: 0.85rem; text-align: center; margin-top: 15px;">本局血量无变化，请等待下一局撤离后结算。</div>
+                <button class="btn btn-continue" id="continueBtn"><i class="fas fa-forward"></i> 继续下一局</button>
+            `;
+            dom.resultArea.classList.add('active');
+            document.getElementById('continueBtn').addEventListener('click', continueNextRound);
+        }
+
+        function getDanIcon(danName) {
+            const icons = {
+                "游老爷丹": "fas fa-gamepad",
+                "毒丹": "fas fa-skull-crossbones",
+                "辟谷丹": "fas fa-utensils",
+                "公婆鱼丹": "fas fa-fish",
+                "大姥姥丹": "fas fa-house-damage",
+                "化腐丹": "fas fa-recycle",
+                "破障丹": "fas fa-mountain",
+                "噤声丹": "fas fa-volume-mute",
+                "匿踪丹": "fas fa-user-ninja",
+                "痛苦丹": "fas fa-head-side-virus",
+                "枯荣丹": "fas fa-seedling",
+                "妄心丹": "fas fa-brain",
+                "金疮丹": "fas fa-band-aid",
+                "润血丹": "fas fa-tint",
+                "刺丹": "fas fa-thorn",
+                "阳寿丹": "fas fa-hourglass-half",
+                "大力丸": "fas fa-fist-raised",
+                "大补丸": "fas fa-gem",
+                "渡厄丹": "fas fa-shield-alt",
+                "造化丹": "fas fa-yin-yang",
+                "威仙丹": "fas fa-feather-alt",
+                "隐毒丹": "fas fa-biohazard",
+                "鹤顶红": "fas fa-poison",
+                "半步倒": "fas fa-person-falling"
+            };
+            return icons[danName] || "fas fa-capsule";
+        }
+
+        function continueNextRound() {
+            dom.resultArea.classList.remove('active');
+            startNewRound();
+        }
+
+        function resetSelection() {
+            gameData.selectedItems = [];
+            document.querySelectorAll('.item-card.selected').forEach(c => c.classList.remove('selected'));
+            updateSelectedItemsDisplay();
+            updateAlchemyButton();
+        }
+
+        function checkGameEnd() {
+            if (gameData.currentHp <= 0) {
+                console.log("血量耗尽，游戏结束！");
+                gameData.isGameActive = false;
+                dom.alchemyStatus.textContent = "游戏结束";
+                dom.startBtn.disabled = false;
+            } else if (gameData.currentHp >= gameData.maxHp) {
+                console.log("血量已满，成功结单！");
+                gameData.isGameActive = false;
+                dom.alchemyStatus.textContent = "结单完成";
+                dom.startBtn.disabled = false;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', initGame);
+    </script>
+</body>
+</html>
